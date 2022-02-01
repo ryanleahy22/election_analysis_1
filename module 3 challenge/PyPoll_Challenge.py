@@ -35,6 +35,7 @@ with open(file_to_load) as election_data:
     reader = csv.reader(election_data)
 
     # Read the header
+  
     header = next(reader)
 
     # For each row in the CSV file.
@@ -64,6 +65,7 @@ with open(file_to_load) as election_data:
 
         # 4a: Write an if statement that checks that the
         # county does not match any existing county in the county list.
+        
         if county_name not in county_list:
 
             # 4b: Add the existing county to the list of counties.
@@ -76,6 +78,7 @@ with open(file_to_load) as election_data:
         county_votes[county_name] += 1
 
 # Save the results to our text file.
+
 with open(file_to_save, "w") as txt_file:
 
     # Print the final vote count (to terminal)
@@ -94,6 +97,7 @@ with open(file_to_save, "w") as txt_file:
         # 6b: Retrieve the county vote count.
         county_vote_count = county_votes[county_name]
         # 6c: Calculate the percentage of votes for the county.
+        
         county_vote_percentage = float(county_vote_count)/float(total_votes)*100
         county_results=(
             f"{county_name}: {county_vote_percentage:.1f}% ({county_vote_count:,})\n")
@@ -116,6 +120,7 @@ with open(file_to_save, "w") as txt_file:
     # 8: Save the county with the largest turnout to a text file.
     txt_file.write(largest_county_turnout)
     # Save the final candidate vote count to the text file.
+   
     for candidate_name in candidate_votes:
 
         # Retrieve vote count and percentage
